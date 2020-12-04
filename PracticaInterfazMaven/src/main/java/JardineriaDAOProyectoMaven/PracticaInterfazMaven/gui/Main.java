@@ -16,12 +16,8 @@ import javax.swing.SwingConstants;
 import java.awt.ComponentOrientation;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.Rectangle;
-import java.awt.Dimension;
 import javax.swing.JTabbedPane;
-import javax.swing.JLayeredPane;
 import javax.swing.JTable;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -111,18 +107,12 @@ public class Main {
 		JMenuItem mntmNewMenuItem_3 = new JMenuItem("Crear");
 		mntmNewMenuItem_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				CreateUser creaUser = new CreateUser();
-				creaUser.createUser();
-				//CreateUser.
+//				CreateUser creaUser = new CreateUser();
+//				creaUser.createUser();
+				CreateUser.main(null);
 			}
 		});
-		mntmNewMenuItem_3.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				CreateUser CreateU = new CreateUser();
-				CreateU.createUser();
-			}
-		});
+		
 		mntmNewMenuItem_3.setForeground(new Color(255, 215, 0));
 		mntmNewMenuItem_3.setFont(new Font("Dialog", Font.PLAIN, 12));
 		mntmNewMenuItem_3.setBackground(new Color(160, 82, 45));
@@ -140,10 +130,54 @@ public class Main {
 		mnNewMenu_1.add(mntmNewMenuItem_1_1);
 		
 		JMenuItem mntmNewMenuItem_2_1 = new JMenuItem("Borrar");
+		mntmNewMenuItem_2_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				tableClientes.setEnabled(true);
+			}
+		});
 		mntmNewMenuItem_2_1.setForeground(new Color(255, 215, 0));
 		mntmNewMenuItem_2_1.setFont(new Font("Dialog", Font.PLAIN, 12));
 		mntmNewMenuItem_2_1.setBackground(new Color(160, 82, 45));
 		mnNewMenu_1.add(mntmNewMenuItem_2_1);
+		
+		JMenu mnNewMenu = new JMenu("Pedidos");
+		mnNewMenu.setBackground(new Color(160, 82, 45));
+		mnNewMenu.setForeground(new Color(255, 215, 0));
+		mnNewMenu.setFont(new Font("Dialog", Font.PLAIN, 15));
+		menuBar_1.add(mnNewMenu);
+		
+		JMenuItem mntmNewMenuItem = new JMenuItem("Crear");
+		mntmNewMenuItem.setBackground(new Color(160, 82, 45));
+		mntmNewMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				CreateOrder.main(null);
+			}
+		});
+		mntmNewMenuItem.setForeground(new Color(255, 215, 0));
+		mntmNewMenuItem.setFont(new Font("Dialog", Font.PLAIN, 12));
+		mnNewMenu.add(mntmNewMenuItem);
+		
+		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Modificar");
+		mntmNewMenuItem_1.setFont(new Font("Dialog", Font.PLAIN, 12));
+		mntmNewMenuItem_1.setBackground(new Color(160, 82, 45));
+		mntmNewMenuItem_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				tablePedidos.setEnabled(true);
+			}
+		});
+		mntmNewMenuItem_1.setForeground(new Color(255, 215, 0));
+		mnNewMenu.add(mntmNewMenuItem_1);
+		
+		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Borrar");
+		mntmNewMenuItem_2.setFont(new Font("Dialog", Font.PLAIN, 12));
+		mntmNewMenuItem_2.setBackground(new Color(160, 82, 45));
+		mntmNewMenuItem_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				tableClientes.setEnabled(true);
+			}
+		});
+		mntmNewMenuItem_2.setForeground(new Color(255, 215, 0));
+		mnNewMenu.add(mntmNewMenuItem_2);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.BOTTOM);
 		tabbedPane.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
@@ -154,7 +188,7 @@ public class Main {
 		
 		String[] columnNamesClient = {"ID", "Name", "Surname", "Telephone", "DNI/NIE", "Num documentation", "E-mail", "Password"};
 		Object[][] dataClient = {
-			    {"1","Rupaul", "Smith", "986242424", "DNI", "65490362H", "RupaulFantasy@gmail.com", "alcoholDepu56"},
+			    {"1","Rupaul", "Smith", "986242424", "DNI", "65490362H", "RupaulFantasy@gmail.com", "allDepu56"},
 			    {"2", "Adela", "Doe", "678919191", "DNI", "69099062H", "adelina56@gmail.com", "MesaRosaTe"},
 			    {"3", "Margarita", "Black", "900828282", "NIE", "P5490362H", "Marmarmar@hotmail.com", "cespedFrio"},			   
 			};
@@ -191,4 +225,5 @@ public class Main {
 		frame.setBounds(100, 100, 800, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
+	
 }

@@ -1,4 +1,4 @@
-package JardineriaDAOProyectoMaven.PracticaInterfazMaven.gui;
+ package JardineriaDAOProyectoMaven.PracticaInterfazMaven.gui;
 
 import java.awt.Color;
 import java.awt.EventQueue;
