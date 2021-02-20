@@ -15,7 +15,11 @@ import JardineriaDAOProyectoMaven.PracticaInterfazMaven.model.Cliente;
 import JardineriaDAOProyectoMaven.PracticaInterfazMaven.model.Cliente.Documentacion;
 
 public class OperacionesCliente {
+	
+	public OperacionesCliente() {		
+	}
 
+//METODOS
 	public static Cliente crearCliente(int id, String nombre, String apellido, 
 			String telefono, Documentacion tipoDocumentacion, String DNI, 
 			String email, String password) throws Exception{
